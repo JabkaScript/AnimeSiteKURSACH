@@ -9,6 +9,7 @@
 /*scroll to top*/
 
 $(document).ready(function(){
+	activeLinkControl()
 	$(function () {
 		$.scrollUp({
 	        scrollName: 'scrollUp', // Element ID
@@ -28,3 +29,8 @@ $(document).ready(function(){
 		});
 	});
 });
+
+function activeLinkControl(){
+    document.querySelectorAll('.mainmenu .navbar-nav a').forEach(
+    link=>{
+    if(link.href === window.location.href){link.classList.add("active")}})}

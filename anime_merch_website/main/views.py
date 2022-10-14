@@ -7,3 +7,7 @@ def index(request):
 
 def contact_us(request):
     return render(request, 'contact-us.html')
+
+
+def cart(request):
+    return render(request, 'cart.html')
