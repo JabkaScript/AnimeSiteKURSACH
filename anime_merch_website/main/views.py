@@ -1,8 +1,21 @@
 from django.shortcuts import render
+from .models import Categories, Products, Images
+from django.template.defaulttags import register
+
+
+@register.filter
+def get_preview(images):
+    return images.select_related().values()[0]['preview']
+
+
+@register.filter
+def get_item(dict, key):
+    return dict[key]
 
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'index.html', {'categories': Categories.objects.all(), 'products': Products.objects.all(),
+                                          'p_images': Images.objects.all()})
 
 
 def contact_us(request):
@@ -18,6 +31,9 @@ def not_found(request):
 
 
 def product_details(request, id):
-    print(id
-          )
-    return render(request, 'product-details.html')
+    return render(request, 'product-details.html', {'prod_info': Products.objects.all().values()[id - 1],
+                                                    'p_images': Images.objects.all()})
+
+
+def login(request):
+    return render(request, 'login.html')

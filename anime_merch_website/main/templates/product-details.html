@@ -12,7 +12,7 @@
 					<div class="product-details"><!--product-details-->
 						<div class="col-sm-5">
 							<div class="view-product">
-								<img src="{% static 'images/product-details/1.jpg'%}" alt="" />
+								<img src="{%static p_images|get_preview%}" alt="" />
 								<h3>ZOOM</h3>
 							</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
@@ -48,12 +48,12 @@
 						</div>
 						<div class="col-sm-7">
 							<div class="product-information"><!--/product-information-->
-								<img src="images/product-details/new.jpg" class="newarrival" alt="" />
-								<h2>Anne Klein Sleeveless Colorblock Scuba</h2>
-								<p>Web ID: 1089772</p>
+								<img src="" class="newarrival" alt="" />
+								<h2>{{prod_info.product_name}}</h2>
+								<p>Web ID: {{prod_info.product_id}}</p>
 								<img src="images/product-details/rating.png" alt="" />
 								<span>
-									<span>US $59</span>
+									<span>US ${{prod_info.cost}}</span>
 									<label>Quantity:</label>
 									<input type="text" value="3" />
 									<button type="button" class="btn btn-fefault cart">
@@ -61,10 +61,10 @@
 										Add to cart
 									</button>
 								</span>
-								<p><b>Availability:</b> In Stock</p>
-								<p><b>Condition:</b> New</p>
-								<p><b>Brand:</b> E-SHOPPER</p>
-								<a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
+								<p><b>Доступно:</b> {{prod_info.count}}</p>
+								<p><b>Состояние:</b> New</p>
+								<p><b>Бренд:</b> Donbass</p>
+								<a href=""><img src="{%static 'images/product-details/share.png'%}" class="share img-responsive"  alt="" /></a>
 							</div><!--/product-information-->
 						</div>
 					</div><!--/product-details-->
@@ -81,13 +81,7 @@
 						<div class="tab-content">
 							<div class="tab-pane fade" id="details" >
 								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="{% static 'images/home/gallery1.jpg'%}" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+									<p><b>Aboba</b></p>
 											</div>
 										</div>
 									</div>
