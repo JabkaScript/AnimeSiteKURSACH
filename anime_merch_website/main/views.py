@@ -4,13 +4,8 @@ from django.template.defaulttags import register
 
 
 @register.filter
-def get_preview(images):
-    return images.select_related().values()[0]['preview']
-
-
-@register.filter
 def get_item(dict, key):
-    return dict[key]
+    return getattr(dict, key)
 
 
 def index(request):
@@ -31,8 +26,8 @@ def not_found(request):
 
 
 def product_details(request, id):
-    return render(request, 'product-details.html', {'prod_info': Products.objects.all().values()[id - 1],
-                                                    'p_images': Images.objects.all()})
+    return render(request, 'product_details.html', {'prod_info': Products.objects.all()[id - 1],
+                                                    'p_images': Images.objects.all(), 'desc_img_count': range(1, 4)})
 
 
 def login(request):
