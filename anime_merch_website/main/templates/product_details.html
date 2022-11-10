@@ -5,6 +5,7 @@
 
 {% block additional_links %}
 <link rel="stylesheet" href="{% static 'css/product_details.css' %}">
+<script src="{% static 'js/carousel.js'%}"></script>
 {% endblock additional_links %}
 
 {% block body_content %}
@@ -13,8 +14,20 @@
         <span class="product-title">{{prod_info.product_name}}</span>
         <div class="images-and-info-container" >
             <div class="images-container">
-                <img src="{%static prod_info.images|get_item:'preview'%}" alt=""></img>
-                <div class="carousel"></div>
+                <img class="active" src="{%static prod_info.images|get_item:'preview'%}" alt=""></img>
+                {% for x in desc_img_count %}
+                {% with 'desc'|addstr:x as src%}
+                <img class="notactive" src="{% static prod_info.images|get_item:src %}" alt=""></img>
+                {% endwith %}
+                {% endfor %}
+                <div class="carousel">
+                    <div class="dots">
+                        <span class="dot active" onclick="change_active_to(0); change_active_dot_to(0)"></span>
+                        {% for x in desc_img_count %}
+                        <span class="dot" onclick="change_active_to({{x}}); change_active_dot_to({{x}})"></span>
+                        {% endfor %}
+                      </div>
+                </div>
             </div>
             <div class="info-n-buttons">
                 <div class="product-info">

@@ -8,9 +8,14 @@ def get_item(dict, key):
     return getattr(dict, key)
 
 
+@register.filter
+def addstr(str1, str2):
+    return str1 + str(str2)
+
+
 def index(request):
     return render(request, 'index.html', {'categories': Categories.objects.all(), 'products': Products.objects.all(),
-                                          'p_images': Images.objects.all()})
+                                          'p_images': Images.objects.all(), 'aboba': range(40)})
 
 
 def contact_us(request):

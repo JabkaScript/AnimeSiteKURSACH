@@ -10,20 +10,24 @@
 
 {% block body_content %}
 <div class="body-content">
-    <div class="row">
-        {% for x in products %}
-        <div class="product-card">
-            <div class="box">
-                <img class="p-image" src="{% static x.images|get_item:'preview' %}" onclick="window.location='{% url 'product' x.product_id %}';" alt="">
-                <div class="p-info" onclick="window.location='{% url 'product' x.product_id %}';">
-                    <span class="p-name">{{x.product_name}}</span>
-                </div>
-                <div class="cart">
-                    <a href="javascript:void(0)">Добавить в корзину</a>
+    <div class="container">
+        <div class="row">
+            {%for gay in aboba%}
+            {% for x in products %}
+            <div class="product-card">
+                <div class="box">
+                    <img class="p-image" src="{% static x.images|get_item:'preview' %}" onclick="window.location='{% url 'product' x.product_id %}';" alt="">
+                    <div class="p-info" onclick="window.location='{% url 'product' x.product_id %}';">
+                        <span class="p-name">{{x.product_name}}</span>
+                    </div>
+                    <div class="cart">
+                        <a href="javascript:void(0)">Добавить в корзину</a>
+                    </div>
                 </div>
             </div>
+            {% endfor %}
+            {%endfor%}
         </div>
-        {% endfor %}
     </div>
 </div>
 {% endblock %}

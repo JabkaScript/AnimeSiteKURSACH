@@ -36,7 +36,7 @@
     border-color: #FFF421;
     background-color: #FFF421;
 }
-.product-card:hover .p-name, .product-card:hover .p-price, .product-card:hover .cart, .product-card:hover .cart a{
+.product-card:hover  *{
     color: blueviolet;
 }
 .p-name, .p-price{

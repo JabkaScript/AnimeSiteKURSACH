@@ -19,13 +19,17 @@
 }
 
 .images-container{
+    width: 375px;
+    height: 500px;
     height: fit-content;
-    display: block;
+    display: flex;
+    flex-direction: column;
 }
 
 .info-n-buttons{
     margin-left: 100px;
     display: flex;
+    justify-content: center;
     flex-direction: column;
 }
 
@@ -44,7 +48,12 @@
     display: flex;
 
 }
-
+.carousel{
+    margin-top: 10px;
+}
+.dots{
+    text-align: center;
+}
 .cart{
     padding: 5px;
     width: fit-content;
