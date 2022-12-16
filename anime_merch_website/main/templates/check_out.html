@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block Title %}Оформить заказ | Haime{% endblock %}
+{% block additional_links %}
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+<script src="{% static 'js/checkout.js' %}"></script>
+{% endblock additional_links %}
+{% block body_content %}
+<div class="body-content">
+    <div class="container">
+        <div class="rows">
+            <div class="address"><span>Адрес: </span><input placeholder="Введите адрес в формате: С, О, Г, У, Д, КВ" maxlength="200"></input></div>
+            <div class="commentary"><span>Комментарий к заказу: </span><input type="text" placeholder="Какой Чапаев? Какие корабли?!" maxlength="200"></input></div>
+            <div class="confirm-button" onclick="confirm_order(this.parentNode.children[0].children[1].value, this.parentNode.children[1].children[1].value)">Подтверждаю</div>
+        </div>
+    </div>
+</div>
+{% endblock %}

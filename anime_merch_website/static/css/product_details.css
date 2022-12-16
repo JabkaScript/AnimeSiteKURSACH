@@ -64,9 +64,26 @@
     justify-content: center;
 }
 .cart a{
+    cursor: pointer;
     line-height: 1.7;
     user-select: none;
     text-decoration: none;
     color:white;
     font-weight: 700;
+}
+
+img.active{
+    display: flex;
+    background-color: gray;
+    width: inherit;
+    transition: ease 0.7s;
+    height: 500px;
+    object-fit:scale-down;
+    border-radius: 10px;
+}
+img.active:active{
+    transform: translatey(+25%) translateX(-25%) scale(1.5, 1.5);
+}
+img.notactive{
+    display: none;
 }

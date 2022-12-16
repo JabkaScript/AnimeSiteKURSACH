@@ -1,0 +1,26 @@
+.address{
+    width: 100%;
+    margin-top: 10px;
+}
+.address input{
+    width: 100%;
+}
+.commentary{
+    margin-top: 10px;
+}
+.commentary input{
+    display: inline;
+    width: 100%;
+    text-align:start;
+    vertical-align: 200%;
+}
+.confirm-button{
+    width: fit-content;
+    padding: 5px 5px;
+    display: flex;
+    justify-content: right;
+    border-radius: 10px;
+    color:white;
+    background-color: blueviolet;
+    margin-left: auto;
+}

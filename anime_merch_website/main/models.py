@@ -1,6 +1,15 @@
 from django.db import models
 
 
+class Status(models.Model):
+    status_id = models.AutoField(primary_key=True, blank=True, null=False)
+    status_name = models.CharField(blank=True, null=True, max_length=50)
+
+    class Meta:
+        managed = False
+        db_table = 'status'
+
+
 class Categories(models.Model):
     cat_id = models.AutoField(primary_key=True, blank=True, null=False)
     name = models.CharField(blank=True, null=True, max_length=50)
@@ -38,7 +47,7 @@ class Images(models.Model):
 
 class Orders(models.Model):
     order_id = models.AutoField(primary_key=True, blank=True, null=False)
-    status = models.ForeignKey('Status', models.DO_NOTHING, blank=True, null=True)
+    status = models.ForeignKey(Status, models.DO_NOTHING, blank=True, null=True)
     client = models.ForeignKey(Clients, models.DO_NOTHING, blank=True, null=True)
     address = models.CharField(blank=True, null=True, max_length=250)
     comment = models.CharField(blank=True, null=True, max_length=250)
@@ -85,15 +94,6 @@ class Productstitles(models.Model):
     class Meta:
         managed = False
         db_table = 'productstitles'
-
-
-class Status(models.Model):
-    status_id = models.AutoField(primary_key=True, blank=True, null=False)
-    status_name = models.CharField(blank=True, null=True, max_length=50)
-
-    class Meta:
-        managed = False
-        db_table = 'status'
 
 
 class Titles(models.Model):

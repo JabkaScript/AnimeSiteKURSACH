@@ -67,5 +67,31 @@
     font-weight: 700;
 }
 
+.category-container{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    padding: 20px 20px;
+    margin: 20px 20px
+}
+
+.category-class{
+    padding: 5px 5px;
+    font-size: 20px;
+    margin: 10px 0px;
+    color:black;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: ease 0.4s;
+    user-select: none;
+}
+
+.category-class:hover{
+    margin: 10px 0px;
+    color:white;
+    background-color: blueviolet;
+    text-decoration: none;
+    user-select: none;
+}
 
 

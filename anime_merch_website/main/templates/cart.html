@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block Title %}Корзина | Haime{% endblock %}
+{% block additional_links %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+{% endblock additional_links %}
+
+{% block body_content %}
+<div class="body-content">
+    <div class="container">
+        {% if products|length > 0 %}
+        <div class="rows">
+            {% for x in products %}
+            <div class="cart-container" value="{{x|get_item_from_values:'product_id'}}">
+                {% with x|get_item_from_values:'images_id' as kit_id %}
+                <img class="cart-product-image" src="{% static 'images/product_prev/'|addstr:kit_id|addstr:'.png'%}" onclick="window.location='{% url 'product' x|get_item_from_values:'product_id' %}'"></img>
+                <a class="cart-product-name" href="{% url 'product' x|get_item_from_values:'product_id' %}">{{x|get_item_from_values:'product_name'}}</a>
+                <div class="cart-quantity-container">
+                    <a class="cart-button" value="-1">-</a>
+                    <div class="cart-quantity-count" onchange="removeContainer(this);" value="{{x|get_item_from_values:'quantity'}}">{{x|get_item_from_values:'quantity'}}</div>
+                    <a class="cart-button" value="1">+</a>
+                </div>
+                <a class="cart-button">X</a>
+                {%endwith%}
+            </div>
+            {% endfor %}
+            <div class="cart-checkout"><a href="{% url 'checkout' %}" style="text-decoration:none; color:white">Оформить заказ</a></div>
+        </div>
+        {%else%}
+        <span style="text-align:center;">Корзина пуста!</span>
+        {%endif%}
+    </div>
+</div>
+<script src="{% static 'js/cart_details.js'%}"></script>
+<script src="{% static 'js/cart.js'%}"></script>
+{% endblock %}

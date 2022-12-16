@@ -6,46 +6,49 @@
 {% block additional_links %}
 <link rel="stylesheet" href="{% static 'css/product_details.css' %}">
 <script src="{% static 'js/carousel.js'%}"></script>
+<script src="{% static 'js/cart.js'%}"></script>
 {% endblock additional_links %}
 
 {% block body_content %}
 <div class="body-content">
-    <div class="product-info-wrapper">
-        <span class="product-title">{{prod_info.product_name}}</span>
-        <div class="images-and-info-container" >
-            <div class="images-container">
-                <img class="active" src="{%static prod_info.images|get_item:'preview'%}" alt=""></img>
-                {% for x in desc_img_count %}
-                {% with 'desc'|addstr:x as src%}
-                <img class="notactive" src="{% static prod_info.images|get_item:src %}" alt=""></img>
-                {% endwith %}
-                {% endfor %}
-                <div class="carousel">
-                    <div class="dots">
-                        <span class="dot active" onclick="change_active_to(0); change_active_dot_to(0)"></span>
-                        {% for x in desc_img_count %}
-                        <span class="dot" onclick="change_active_to({{x}}); change_active_dot_to({{x}})"></span>
-                        {% endfor %}
-                      </div>
-                </div>
-            </div>
-            <div class="info-n-buttons">
-                <div class="product-info">
-                    <span><b>Категория</b>: {{prod_info.cat|get_item:'name'}}</span>
-                    <br>
-                    <span><b>Масса</b>: {{prod_info.mass}}</span>
-                    <br>
-                    <span><b>Размер</b>: {{prod_info.size}}</span>
-                    <br>
-                    <span><b>Материал</b>: {{prod_info.material}}</span>
-                    <br>
-                </div>
-                <div class="cart-buttons">
-                    <div class="cart">
-                        <a href="javascript:void(0)">Купить</a>
+    <div class="container">
+        <div class="product-info-wrapper">
+            <span class="product-title">{{prod_info.product_name}}</span>
+            <div class="images-and-info-container" >
+                <div class="images-container">
+                    <img class="active" src="{%static prod_info.images|get_item:'preview'%}" alt=""></img>
+                    {% for x in desc_img_count %}
+                    {% with 'desc'|addstr:x as src%}
+                    <img class="notactive" src="{% static prod_info.images|get_item:src %}" alt=""></img>
+                    {% endwith %}
+                    {% endfor %}
+                    <div class="carousel">
+                        <div class="dots">
+                            <span class="dot active" onclick="change_active_to(0); change_active_dot_to(0)"></span>
+                            {% for x in desc_img_count %}
+                            <span class="dot" onclick="change_active_to({{x}}); change_active_dot_to({{x}})"></span>
+                            {% endfor %}
+                        </div>
                     </div>
-                    <div class="cart">
-                        <a href="javascript:void(0)">Добавить в корзину</a>
+                </div>
+                <div class="info-n-buttons">
+                    <div class="product-info">
+                        <span><b>Категория</b>: {{prod_info.cat|get_item:'name'}}</span>
+                        <br>
+                        <span><b>Масса</b>: {{prod_info.mass}}</span>
+                        <br>
+                        <span><b>Размер</b>: {{prod_info.size}}</span>
+                        <br>
+                        <span><b>Материал</b>: {{prod_info.material}}</span>
+                        <br>
+                    </div>
+                    <div class="cart-buttons">
+                        <div class="cart">
+                            <a href="javascript:void(0)">Купить</a>
+                        </div>
+                        <div class="cart">
+                            <a onclick="addToCart({{prod_info.product_id}})">Добавить в корзину</a>
+                        </div>
                     </div>
                 </div>
             </div>

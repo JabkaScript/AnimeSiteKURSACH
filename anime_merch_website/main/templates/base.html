@@ -4,21 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block Title %}{% endblock Title%}</title>
+
     <link rel="stylesheet" href="{% static 'css/base.css'%}"/>
+
     {% block additional_links %}{% endblock additional_links %}
 </head>
 <body>
     <header>
         <div class="navbar">
-            <div class="navbar-left">
-                <a class="navbar-item" href="{% url 'home'%}">Главная</a>
-                <a class="navbar-item">Каталог</a>
-                <a class="navbar-item">Контакты</a>
-            </div>
-            <div class="navbar-right">
-                <a class="navbar-item">Войти</a>
-                <a class="navbar-item">Корзина</a>
-                <a class="navbar-item">Заказы</a>
+            <div class="container">
+                <div class="navbar-left">
+                    <a class="navbar-item" href="{% url 'home'%}">Главная</a>
+                    <a class="navbar-item" href="javascript:alert('Функционал недосутпен в текущей версии')">Каталог</a>
+                    <a class="navbar-item" href="javascript:alert('Функционал недосутпен в текущей версии')">Контакты</a>
+                </div>
+                <div class="navbar-right">
+                    <a class="navbar-item" href="javascript:alert('Функционал недосутпен в текущей версии')">Войти</a>
+                    <a class="navbar-item" href="{% url 'cart' %}">Корзина</a>
+                    <a class="navbar-item" href="javascript:alert('Функционал недосутпен в текущей версии')">Заказы</a>
+                </div>
             </div>
         </div>
     </header>
@@ -34,8 +38,6 @@
                             <br>
                             Интернет-магазин аниме аксессуаров, фигурок, манги и дакимакур
                         </p>
-                    </div>
-                    <div class="column">
                     </div>
                 </div>
             </div>
